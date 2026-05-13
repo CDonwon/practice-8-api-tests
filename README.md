@@ -48,6 +48,7 @@ pip install -r requirements.txt
 
 Для хранения настроек и тестовых данных был создан файл `.env`. В него были добавлены базовый URL API, логин и пароль тестового пользователя, а также логин и пароль администратора:
 
+```env
 BASE_URL=https://secby.ru
 
 USER_LOGIN=
@@ -55,8 +56,9 @@ USER_PASSWORD=
 
 ADMIN_LOGIN=
 ADMIN_PASSWORD=
+```
 
-Файл `.env` я решил не загружать, так как он содержит данные для авторизации. Вместо него я выгрузил файл `.env.example`, в котором показана структура необходимых переменных окружения.
+Файл `.env` я решил не загружать, так как он содержит данные для авторизации. Вместо него в репозиторий был добавлен файл `.env.example`, в котором показана структура необходимых переменных окружения.
 
 После настройки проекта автотесты запускались из терминала командой:
 
@@ -101,10 +103,13 @@ pytest -v
 
 После запуска команды:
 
+```bash
 pytest -v
+```
 
-ожидается успешное прохождение тестов:
+ожидается успешное прохождение всех тестов:
 
+```text
 collected 17 items
 
 tests/test_admin.py::test_admin_can_get_own_profile PASSED
@@ -124,3 +129,6 @@ tests/test_user_profile.py::test_user_cannot_get_profile_without_token PASSED
 tests/test_user_profile.py::test_user_cannot_get_profile_with_invalid_token PASSED
 tests/test_user_profile.py::test_user_profile_response_has_required_fields PASSED
 tests/test_user_profile.py::test_user_can_get_profile_by_own_account_id PASSED
+
+17 passed
+```
